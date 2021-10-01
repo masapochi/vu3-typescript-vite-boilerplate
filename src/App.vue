@@ -1,36 +1,17 @@
-<script lang="ts">
-import { defineComponent, toRefs, reactive } from "@vue/runtime-core";
-import HelloWorld from "./components/HelloWorld.vue";
+<template>
+  <Hello />
+</template>
 
-type State = {
-  message: string | number;
-};
+<script lang="ts">
+import { defineComponent, ref } from "@vue/runtime-core";
+import Hello from "./pages/Hello.vue";
 
 export default defineComponent({
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-  setup(props, context) {
-    const state = reactive<State>({
-      message: "Hello Vue 3 + TypeScript + Vite",
-    });
-    const changeMessage = (message) => {
-      state.message = message;
-    };
-
-    return { state, changeMessage };
-  },
+  components: { Hello },
 });
 </script>
 
-<template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <p>{{ message }}</p>
-  <HelloWorld :message="state.message" @change-message="changeMessage" />
-</template>
-
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
